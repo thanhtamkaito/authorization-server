@@ -14,7 +14,7 @@ spring:
             client-id: messages-client
             client-secret: secret
             authorization-grant-type: authorization_code
-            redirect-uri: "http://backend-client:8083/login/oauth2/code/{registrationId}"
+            redirect-uri: "http://127.0.0.1:8083/login/oauth2/code/{registrationId}"
             scope: openid
             client-name: messages-client-oidc
           messages-client-authorization-code:
@@ -22,9 +22,9 @@ spring:
             client-id: messages-client
             client-secret: secret
             authorization-grant-type: authorization_code
-            redirect-uri: "http://backend-client:8083/authorized"
+            redirect-uri: "http://127.0.0.1:8083/authorized"
             scope: message.read
             client-name: messages-client-authorization-code
         provider:
           spring:
-            issuer-uri: http://backend-auth:8081
+            issuer-uri: http://127.0.0.1:8081

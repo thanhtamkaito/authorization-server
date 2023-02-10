@@ -1,0 +1,27 @@
+version: "3.7"
+services:
+  db-postgres:
+    container_name: db-postgres
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+    volumes:
+      #      - db-data:/var/lib/postgresql/
+      - ./SQL-creater/ddl-create-db-postgres.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./SQL-creater/data-postges.sql:/docker-entrypoint-initdb.d/insert-data.sql
+    ports:
+      - "5434:5432"
+networks:
+  spring-cloud-network:
+    driver: bridge
+
+#volumes:
+#  db-data:
+#    driver: local
+#    driver_opts:
+#      #size: "10GiB"
+#      type: none
+#      device: /mnt/f/Projects/projects/project/db
+#      o: bind
